@@ -6,6 +6,6 @@ python:
 
 install:
     - pip install -q Django==$DJANGO_VERSION
-scripts:
+script:
     - python SnowFlake/manage.py test
 
