@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Designer.views import CreateView
+from Designer.views import *
+import Designer.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CreateView.as_view(), name="create"),
+    path('generate_file', generate, name="generate_file"),
 ]
