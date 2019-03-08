@@ -14,7 +14,5 @@ class CreateView(TemplateView):
 def generate(request):
 
     if request.is_ajax():
-        print("AJAX REQUEST!")
-        print(request.POST['val'])
         parseHTML(request.POST['val'])
     return HttpResponseRedirect('/')
