@@ -35,13 +35,14 @@ div.block + div.block {
 
 
 .draggable {
-	border: thin solid black;
+	border: 0.05px solid black;
+	vertical-align: middle;
 }
 
 .location {
 	width: 30%;
 	height: 10%;
-	margin: 0 0 0 5;
+	margin: 5 5 5 5;
 	align-content: center;
 	vertical-align: middle;
 	text-align: center;

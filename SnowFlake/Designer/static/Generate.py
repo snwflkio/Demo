@@ -7,19 +7,19 @@ import re
 #
 # Takes input as parameter (HTML to parse)
 #####################################################################
-def parseHTML(input):
-	htmlStartTemplate = "<html>\n<head>\n<script src=\"./test.js\"></script>\n<link rel=\"stylesheet\" href=\"./test.css\"/>\n</head>\n<body>\n<div class=\"main\">\n"
-	newHtmlIndex = input.find("<div class=\"section\">")
-	re.DOTALL
-	newHtml = input[newHtmlIndex:]
-	newHtml = re.sub(r"ondrop=\"drop\(event\)\"", "", newHtml)
-	newHtml = re.sub(r"ondragover=\"allowDrop\(event\)\"", "", newHtml)
-	newHtml = re.sub(r"draggable location", "", newHtml)
-	newHtml = htmlStartTemplate + newHtml
-	f = open("new.html","w+")
-	f.write(newHtml)
-	f.close()
-	print("New HTML file generated.")
+def parseHTML(inp):
+    htmlStartTemplate = "<html>\n<head>\n<script src=\"./test.js\"></script>\n<link rel=\"stylesheet\" href=\"./test.css\"/>\n</head>\n<body>\n<div class=\"main\">\n"
+    re.DOTALL
+    newHtml = inp
+    newHtml = re.sub(r"ondrop=\"drop\(event\)\"", "", newHtml)
+    newHtml = re.sub(r"ondragover=\"allowDrop\(event\)\"", "", newHtml)
+    newHtml = re.sub(r"draggable location", "", newHtml)
+    newHtml = htmlStartTemplate + newHtml
+    f = open("files/new.html","w+")
+    f.write(newHtml)
+    f.write("</div>\n</body>\n</html>")
+    f.close()
+    print("New HTML file generated.")
 
 #####################################################################
 # Use this to manually test function with saved HTML file (test.html)

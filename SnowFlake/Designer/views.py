@@ -12,6 +12,9 @@ class CreateView(TemplateView):
 
 # This is defined in urls.py 
 def generate(request):
-    print("HHHHHHHHH")
-    #parseHTML(input)
+
+    if request.is_ajax():
+        print("AJAX REQUEST!")
+        print(request.POST['val'])
+        parseHTML(request.POST['val'])
     return HttpResponseRedirect('/')

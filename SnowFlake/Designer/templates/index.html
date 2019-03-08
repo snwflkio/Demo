@@ -36,27 +36,66 @@
 				<h2>Subtitle</h2>
 			</div>
 
-			<div id="subtitle" draggable="true" ondragstart="drag(event)">
+			<div id="subsubtitle" draggable="true" ondragstart="drag(event)">
 				<h3>SubSubtitle</h3>
 			</div>
 
-			<div id="subtitle" draggable="true" ondragstart="drag(event)">
+			<div id="subsubsubtitle" draggable="true" ondragstart="drag(event)">
 				<h4>SubSubSubtitle</h4>
 			</div>
+			<div id="btn" draggable="true" ondragstart="drag(event)">
+				<button class="btn btn-large">Button</button>
+			</div>
 			<!-- generate_file is the url defined in settings.py  -->
-			<a class="btn btn-large" href="{% url "generate_file" %}">PRESS ME</a>
+				<!-- <a class="btn btn-large"  onclick="getData()" href="{% url "generate_file"  %}">PRESS ME</a> -->
+				<textarea style="width: 100%; height: 50%" id="data" name"data"></textarea>
+				<button id="generate" class="btn btn-large"  onclick="getData()">PRESS ME 1</button>
+				<button id="button" class="btn btn-large" onclick="test()">PRESS ME2</button>
+
 		</div>
 		<div class="line">
 
 		</div>
-		<div class="section">
-			<div id="1-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div> 
-			<div id="2-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
-			<div id="3-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
-			<div id="4-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
+		<div id="PLACEHOLDER" style="width: 50%; height: 100%">
+			<div class="section" id="style" style="padding-top: 10px; padding-right: 10px">
+				<div id="1-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div> 
+				<div id="2-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
+				<div id="3-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
+				<div id="4-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
+			</div>
 		</div>
 	</div>
 </body>
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+function test() {
+
+        //var val = document.getElementById('data').value;
+		var val = document.getElementById('data').value;
+		console.log("VALUE: " + val)
+            $.ajax({
+                url: "/generate_file",
+                type: "POST",
+                dataType: "html",
+                data: {
+                    val: val,
+                    csrfmiddlewaretoken: "9s24NsX6obkLMD1JVuZhbLT7wnkNo0vr4Y6wN1FQLcYxr7fsiXjs4mEbFXH74DnL"
+                    },
+                success : function(json) {
+                    alert("Successfully sent the URL to Django");
+                },
+                error : function(xhr,errmsg,err) {
+                    alert("Could not send URL to Django. Error: " + err);
+                }
+            });
+}
+</script>
+<script>
+	function getData()
+	{
+		document.getElementById('data').value = document.getElementById('PLACEHOLDER').innerHTML;
+		console.log(document.getElementById('data').value)
+	}
+</script>
