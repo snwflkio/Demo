@@ -57,12 +57,6 @@
 
 		</div>
 		<div id="PLACEHOLDER" style="width: 50%; height: 100%">
-			<div class="section" id="style" style="padding-top: 10px; padding-right: 10px">
-				<div id="1-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div> 
-				<div id="2-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
-				<div id="3-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
-				<div id="4-dd" ondrop="drop(event)" ondragover="allowDrop(event)" class="draggable location"></div>
-			</div>
 		</div>
 	</div>
 </body>
@@ -70,18 +64,52 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-function test() {
+	var section = document.getElementById("PLACEHOLDER")
+	for(var i = 0; i < 10; i++) {
+		var subsection = document.createElement("DIV")
+		subsection.setAttribute("id", j)
+		subsection.setAttribute("class", "section")
+		for(var j = 0; j < 10; j++) {
+			var subsubsection = document.createElement("DIV")
+			subsubsection.setAttribute("id", i + "" + j)
+			subsubsection.setAttribute("ondrop", "drop(event)")
+			subsubsection.setAttribute("ondragover", "allowDrop(event)")
+			subsubsection.setAttribute("class", "draggable location")
+			subsection.appendChild(subsubsection)
+		}
+		section.append(subsection)
+	}
+//	for(var i = 0; i < 9; i++) 
+//	{
+//		var subsection = document.createElement("DIV");
+//		subsection.setAttribute("class", "section")
+//		console.log("Creating subsection")
+//		for(var j = 0; j < 10; j++)
+//		{
+//				//console.log("Creating sub-subsection")
+//				//var subsubsection = document.createElement("DIV")
+//		`		//subsubsection.setAttribute("id", i + "" + j);
+//				//subsubsection.setAttribute("ondrop", "drop(event)")
+//				//subsubsection.setAttribute("ondragover", "allowDrop(event)")
+//				//subsubsection.setAttribute("class", "draggable location")
+//				//subsection.appendChild(subsubsection)
+//		}
+//		section.appendChild(subsection)
+//	}
+</script>
 
+<script>
+function test() {
         //var val = document.getElementById('data').value;
 		var val = document.getElementById('data').value;
-		console.log("VALUE: " + val)
             $.ajax({
                 url: "/generate_file",
                 type: "POST",
                 dataType: "html",
                 data: {
                     val: val,
-                    csrfmiddlewaretoken: "9s24NsX6obkLMD1JVuZhbLT7wnkNo0vr4Y6wN1FQLcYxr7fsiXjs4mEbFXH74DnL"
+                    //csrfmiddlewaretoken: "9s24NsX6obkLMD1JVuZhbLT7wnkNo0vr4Y6wN1FQLcYxr7fsiXjs4mEbFXH74DnL"
+                    csrfmiddlewaretoken: "{{ csrf_token }}"
                     },
                 success : function(json) {
                     alert("Successfully sent the URL to Django");
@@ -96,6 +124,5 @@ function test() {
 	function getData()
 	{
 		document.getElementById('data').value = document.getElementById('PLACEHOLDER').innerHTML;
-		console.log(document.getElementById('data').value)
 	}
 </script>

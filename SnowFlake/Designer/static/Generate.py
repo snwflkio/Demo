@@ -49,7 +49,6 @@ def parseHTML(inp):
 def cleanHTML(html):
     html = html.replace(' ondrop="drop(event)" ', "")
     html = html.replace('ondragover="allowDrop(event)" ', "")
-    html = html.replace('draggable location', "")
     return html
 
 def updateFile(fileName, tag, value):

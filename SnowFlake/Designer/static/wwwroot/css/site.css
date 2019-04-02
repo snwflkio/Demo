@@ -7,14 +7,13 @@
 .section {
 	display: flex;
 	flex-direction: row wrap;
-	width: 49%;
 	horizontal-align: center;
 }
 
 .section-column {
 	display: flex;
+	width: 50%;
 	flex-direction: column;
-	width: 49%;
 	horizontal-align: center;
 }
 
@@ -35,14 +34,11 @@ div.block + div.block {
 
 
 .draggable {
-	border: 0.05px solid black;
-	vertical-align: middle;
 }
 
 .location {
 	width: 30%;
 	height: 10%;
-	margin: 5 5 5 5;
 	align-content: center;
 	vertical-align: middle;
 	text-align: center;
