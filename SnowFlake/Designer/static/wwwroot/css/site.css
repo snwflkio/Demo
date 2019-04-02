@@ -37,8 +37,8 @@ div.block + div.block {
 }
 
 .location {
-	width: 30%;
-	height: 10%;
+	width: 5vw;
+	height: 5vh;
 	align-content: center;
 	vertical-align: middle;
 	text-align: center;
