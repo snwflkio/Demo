@@ -16,8 +16,11 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" 
 		integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
-	<script src="{% static "wwwroot/scripts/site.js" %}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="{% static "wwwroot/scripts/site.js" %}"></script>
+	<script src="{% static "wwwroot/scripts/qrcode.js" %}"></script>
+
+
 </head>
 
 <body>
@@ -47,8 +50,9 @@
 				<button id="load" class="btn btn-large"  onclick="getData()">Load Web App Content</button>
 				<button id="generate" class="btn btn-large" style="display: none" onclick="test()">Generate</button>
 
-		</div>
+			</div>
 
+		<div id="qrcode"></div>
 		<div class="line"></div>
 		<div id="PLACEHOLDER" style="width: 50%; height: 100%"></div>
 	</div>
@@ -56,6 +60,11 @@
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function generateQRCode() {
+		new QRCode(document.getElementById("qrcode"), "http://google.com");
+	}
+</script>
 <script>
 	var section = document.getElementById("PLACEHOLDER")
 	for(var i = 0; i < 20; i++) {
@@ -93,7 +102,7 @@ function test() {
                     alert("Successfully sent the URL to Django");
 					document.getElementById('generate').style["display"] = "none"
 					document.getElementById('load').removeAttribute("style")
-
+					new QRCode(document.getElementById("qrcode"), "http://google.com");
                 },
                 error : function(xhr,errmsg,err) {
                     alert("Could not send URL to Django. Error: " + err);
