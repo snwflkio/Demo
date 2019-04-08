@@ -19,48 +19,136 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="{% static "wwwroot/scripts/site.js" %}"></script>
 	<script src="{% static "wwwroot/scripts/qrcode.js" %}"></script>
-
-
 </head>
 
 <body>
 	<div class="main">
 		<div class="section-column">
-			<div id="title" draggable="true" ondragstart="drag(event)">
-				<h1>Title</h1>
-			</div>
-			<div id="subtitle" draggable="true" ondragstart="drag(event)">
-				<h2>Subtitle</h2>
-			</div>
+			<div class="accordion" id="accordian-selection">
+			  <div class="card">
+			    <div class="card-header" id="headers">
+			      <h2 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-headings" aria-expanded="false" aria-controls="collapse-headings">
+			          Headers & Titles
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse-headings" class="collapse" aria-labelledby="headers" data-parent="#accordian-selection">
+			      <div class="card-body">
+					<div id="title" draggable="true" ondragstart="drag(event)">
+						<h1>Title</h1>
+					</div>
+					<div id="subtitle" draggable="true" ondragstart="drag(event)">
+						<h2>Subtitle</h2>
+					</div>
 
-			<div id="subsubtitle" draggable="true" ondragstart="drag(event)">
-				<h3>SubSubtitle</h3>
-			</div>
+					<div id="subsubtitle" draggable="true" ondragstart="drag(event)">
+						<h3>SubSubtitle</h3>
+					</div>
 
-			<div id="subsubsubtitle" draggable="true" ondragstart="drag(event)">
-				<h4>SubSubSubtitle</h4>
+					<div id="subsubsubtitle" draggable="true" ondragstart="drag(event)">
+						<h4>SubSubSubtitle</h4>
+					</div>
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="card">
+			    <div class="card-header" id="buttons">
+			      <h2 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-button" aria-expanded="false" aria-controls="collapse-button">
+			          Buttons & Inputs
+			        </button>
+			      </h2>
+			    </div>
+			
+			    <div id="collapse-button" class="collapse" aria-labelledby="buttons" data-parent="#accordian-selection">
+			      <div class="card-body row">
+					  <div class="col-auto" style="margin-top: 5px">
+						<div id="button-primary" draggable="true" ondragstart="drag(event)">
+							<button class="btn btn-primary">Primary Button</button>
+						</div>
+						<div id="button-secondary" draggable="true" ondragstart="drag(event)">
+							<button class="btn btn-secondary">Secondary Button</button>
+						</div>
+						<div id="button-warning" draggable="true" ondragstart="drag(event)">
+							<button class="btn btn-warning">Warning Button</button>
+						</div>
+
+						<div id="button-danger" draggable="true" ondragstart="drag(event)">
+							<button class="btn btn-danger">Danger Button</button>
+						</div>
+					</div>
+					<div class="col-auto">
+						<div id="input" draggable="true" ondragstart="drag(event)">
+							<div class="input-group mb-3">
+						 		<input type="text" class="form-control" placeholder="Input..." aria-label="Username">
+							</div>
+						</div>
+					</div>
+
+				</div>
 			</div>
-			<div id="btn" draggable="true" ondragstart="drag(event)">
-				<button class="btn btn-large">Button</button>
+			<div class="card">
+			    <div class="card-header" id="navs">
+			      <h2 class="mb-0">
+			        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-navs" aria-expanded="false" aria-controls="collapse-navs">
+			          Navigation & Pagination
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse-navs" class="collapse" aria-labelledby="navs" data-parent="#accordian-selection">
+			      <div class="card-body">
+					<div class="row">
+						<div class="col">
+							<div id="nav-obj" draggable="true" ondragstart="drag(event)">
+								<nav class="nav">
+								  <a class="nav-link" href="#">Home</a>
+								  <a class="nav-link" href="#">About</a>
+								  <a class="nav-link" href="#">Contact</a>
+								</nav>
+							</div>
+						</div>
+
+						<div class="col">
+
+						</div>
+					</div>
+				  </div>
+			    </div>
+			  </div>
 			</div>
-			<!-- generate_file is the url defined in settings.py  -->
+		</div>
+				<!-- generate_file is the url defined in settings.py  -->
 				<!-- <a class="btn btn-large"  onclick="getData()" href="{% url "generate_file"  %}">PRESS ME</a> -->
 				<textarea style="display: none;" id="data" name"data"></textarea>
 				<br>
-				<button id="load" class="btn btn-large"  onclick="getData()">Load Web App Content</button>
-				<button id="generate" class="btn btn-large" style="display: none" onclick="test()">Generate</button>
+				<center>
+					<button id="load" class="btn btn-large"  onclick="getData()">Load Web App Content</button>
+					<button id="generate" class="btn btn-large" style="display: none" onclick="test()">Generate</button>
+				</center>
 
 			</div>
 
-		<div id="qrcode"></div>
 		<div class="line"></div>
 		<div id="PLACEHOLDER" style="width: 50%; height: 100%"></div>
+	<div id="qr-scan" class="overlay" style="display: none; padding-top: 5vh;">
+	<center>
+		<div id="qrcode"></div> <br/>
+		<button id="close" class="btn btn-large" onclick="closePopup()">Close</button>
+	</center>
 	</div>
-</body>
+
+	</div>
+	</body>
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+	function closePopup() {
+		document.getElementById("qr-scan").style["display"] = "none";
+	}
+
 	function generateQRCode() {
 		new QRCode(document.getElementById("qrcode"), "http://google.com");
 	}
@@ -69,7 +157,7 @@
 	var section = document.getElementById("PLACEHOLDER")
 	for(var i = 0; i < 20; i++) {
 		var subsection = document.createElement("DIV")
-		subsection.setAttribute("id", j)
+		subsection.setAttribute("id", i)
 		subsection.setAttribute("class", "section")
 		for(var j = 0; j < 20; j++) {
 			var subsubsection = document.createElement("DIV")
@@ -86,8 +174,8 @@
 </script>
 
 <script>
+
 function test() {
-        //var val = document.getElementById('data').value;
 		var val = document.getElementById('data').value;
             $.ajax({
                 url: "/generate_file",
@@ -95,14 +183,14 @@ function test() {
                 dataType: "html",
                 data: {
                     val: val,
-                    //csrfmiddlewaretoken: "9s24NsX6obkLMD1JVuZhbLT7wnkNo0vr4Y6wN1FQLcYxr7fsiXjs4mEbFXH74DnL"
                     csrfmiddlewaretoken: "{{ csrf_token }}"
                     },
                 success : function(json) {
-                    alert("Successfully sent the URL to Django");
 					document.getElementById('generate').style["display"] = "none"
 					document.getElementById('load').removeAttribute("style")
-					new QRCode(document.getElementById("qrcode"), "http://google.com");
+					document.getElementById("qrcode").innerHTML = ""
+					document.getElementById("qr-scan").style["display"] = "block"
+					new QRCode(document.getElementById("qrcode"), "http://10.202.96.236:5050/");
                 },
                 error : function(xhr,errmsg,err) {
                     alert("Could not send URL to Django. Error: " + err);

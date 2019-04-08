@@ -14,7 +14,7 @@ def parseHTML(inp):
     name = 'TODO'
     directory = '../Creations/'
     cd = os.path.dirname(os.path.abspath(__file__))
-    time = str(datetime.datetime.now())
+    time = str(datetime.date.today())
     directory += time 
    
     # Create all the directories we need (This is in the directory above the project)

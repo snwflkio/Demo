@@ -34,12 +34,44 @@ div.block + div.block {
 
 
 .draggable {
+		width: 2.5vw;
+		height: 5vh;
+		min-width: 2.5vw;
+		max-width: 2.5vw;
+		border: white 0.2px solid;
 }
 
 .location {
-	width: 5vw;
-	height: 5vh;
 	align-content: center;
 	vertical-align: middle;
 	text-align: center;
+}
+
+div > .btn {
+	margin-bottom: 5px;
+}
+
+div > input {
+	margin-top: 5px;
+}
+
+input {
+	width: 18vw;
+	min-width: 18vw;
+}
+
+.btn {
+	width: 15vw;
+}
+
+nav {
+	min-width: 25vw;
+}
+
+.overlay {
+	position: absolute;
+	z-index: 10;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.5);	
 }
