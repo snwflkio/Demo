@@ -5,4 +5,4 @@ cd ../../../../snwflkio.github.io/;
 
 git add .;
 git commit -m "$2";
-git push origin master;
+git push -u origin master;
