@@ -36,18 +36,32 @@
 			    <div id="collapse-headings" class="collapse" aria-labelledby="headers" data-parent="#accordian-selection">
 			      <div class="card-body">
 					<div id="title" draggable="true" ondragstart="drag(event)">
-						<h1>Title</h1>
+						<h1 id="title-content" class="editable">Title</h1>
 					</div>
-					<div id="subtitle" draggable="true" ondragstart="drag(event)">
-						<h2>Subtitle</h2>
+					<div id="title-setter" style="display: none">
+						<input type="text" value="Title" onkeyup="setValue('title', this.value)"/>
 					</div>
 
+					<div id="subtitle" draggable="true" ondragstart="drag(event)">
+						<h2 id="subtitle-content" class="editable">Subtitle</h2>
+					</div>
+					<div id="subtitle-setter" style="display: none">
+						<input type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
+					</div>
+
+
 					<div id="subsubtitle" draggable="true" ondragstart="drag(event)">
-						<h3>SubSubtitle</h3>
+						<h3 id="subsubtitle-content" class="editable">Subsubtitle</h3>
+					</div>
+					<div id="subsubtitle-setter" style="display: none">
+						<input type="text" value="Subsubtitle" onkeyup="setValue('subsubtitle', this.value)"/>
 					</div>
 
 					<div id="subsubsubtitle" draggable="true" ondragstart="drag(event)">
-						<h4>SubSubSubtitle</h4>
+						<h4 id="subsubsubtitle-content" class="editable">SubSubSubtitle</h4>
+					</div>
+					<div id="subsubsubtitle-setter" style="display: none">
+						<input type="text" value="Subsubsubtitle" onkeyup="setValue('subsubsubtitle', this.value)"/>
 					</div>
 			      </div>
 			    </div>
@@ -151,6 +165,10 @@
 
 	function generateQRCode() {
 		new QRCode(document.getElementById("qrcode"), "http://google.com");
+	}
+
+	function setValue(elemId, val) {
+		var element = document.getElementById(elemId + '-content').innerHTML = val;
 	}
 </script>
 <script>

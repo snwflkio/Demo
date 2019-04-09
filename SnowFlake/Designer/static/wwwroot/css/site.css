@@ -38,7 +38,6 @@ div.block + div.block {
 		height: 5vh;
 		min-width: 2.5vw;
 		max-width: 2.5vw;
-		border: white 0.2px solid;
 }
 
 .location {
@@ -74,4 +73,9 @@ nav {
 	height: 100%;
 	width: 100%;
 	background: rgba(0,0,0,0.5);	
+}
+
+.editable {
+	width: 15vw;
+	max-width: 15vw;
 }
