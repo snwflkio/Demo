@@ -147,8 +147,16 @@
 				<textarea style="display: none;" id="data" name"data"></textarea>
 				<br>
 				<center>
-					<button id="load" class="btn btn-large"  onclick="getData()">Load Web App Content</button>
-					<button id="generate" class="btn btn-large" style="display: none" onclick="test()">Generate</button>
+					<div>
+						<button id="load" class="btn btn-large" class="col-md-0" style="background-color: lightblue" onclick="getData()">Build App Content</button>
+						<img src="{% static "media/whiteness.png" %}" id="white-load" class="col-md-1"></img>
+						<img src="{% static "media/checky.png" %}" id="checky-load" class="col-md-1" style="display: none"></img>
+					</div>
+					<div>
+						<button id="generate" class="btn btn-large" class="col-md-0" style="display: none; background-color: lightblue" onclick="test()">Generate</button>
+						<img src="{% static "media/whiteness.png" %}" id="white-gen" style="display: none" class="col-md-1"></img>
+						<img src="{% static "media/checky.png" %}" id="checky-gen" class="col-md-1" style="display: none"></img>
+					</div>
 				</center>
 
 			</div>
@@ -169,6 +177,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 	function closePopup() {
+		document.getElementById('generate').style["display"] = "none"
+		document.getElementById('checky-gen').style["display"] = "none"
+		document.getElementById('load').style["background-color"] = "lightblue"
+		document.getElementById('white-load').style["display"] = "inline"
+		document.getElementById('checky-load').style["display"] = "none"
 		document.getElementById("qr-scan").style["display"] = "none";
 	}
 
@@ -213,8 +226,9 @@ function test() {
                     csrfmiddlewaretoken: "{{ csrf_token }}"
                     },
                 success : function(json) {
-					document.getElementById('generate').style["display"] = "none"
-					document.getElementById('load').removeAttribute("style")
+					document.getElementById('white-gen').style["display"] = "none"
+					document.getElementById('checky-gen').style["display"] = "inline"
+					document.getElementById('generate').style["background-color"] = "lightgray"
 					document.getElementById("qrcode").innerHTML = ""
 					document.getElementById("qr-scan").style["display"] = "block"
 					new QRCode(document.getElementById("qrcode"), "http://10.202.96.236:5050/");
@@ -229,8 +243,11 @@ function test() {
 	function getData()
 	{
 		document.getElementById('data').value = document.getElementById('PLACEHOLDER').innerHTML;
-		document.getElementById('load').style["background-color"] = "green"
-		document.getElementById('load').style["text-color"] = "white"
-		document.getElementById('generate').style["display"] = "block"
+		document.getElementById('load').style["background-color"] = "lightgray"
+		document.getElementById('checky-load').style["display"] = "inline"
+		document.getElementById('white-load').style["display"] = "none"
+		document.getElementById('generate').style["background-color"] = "lightblue"
+		document.getElementById('generate').style["display"] = "inline"
+		document.getElementById('white-gen').style["display"] = "inline"
 	}
 </script>
