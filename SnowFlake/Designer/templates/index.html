@@ -156,6 +156,7 @@
 						<button id="generate" class="btn btn-large" class="col-md-0" style="display: none; background-color: lightblue" onclick="test()">Generate</button>
 						<img src="{% static "media/whiteness.png" %}" id="white-gen" style="display: none" class="col-md-1"></img>
 						<img src="{% static "media/checky.png" %}" id="checky-gen" class="col-md-1" style="display: none"></img>
+						<img src="{% static "media/loading.gif" %}" id="loading-gen" class="col-md-1" style="display: none"></img>
 					</div>
 				</center>
 
@@ -216,27 +217,30 @@
 <script>
 
 function test() {
-		var val = document.getElementById('data').value;
-            $.ajax({
-                url: "/generate_file",
-                type: "POST",
-                dataType: "html",
-                data: {
-                    val: val,
-                    csrfmiddlewaretoken: "{{ csrf_token }}"
-                    },
-                success : function(json) {
-					document.getElementById('white-gen').style["display"] = "none"
-					document.getElementById('checky-gen').style["display"] = "inline"
-					document.getElementById('generate').style["background-color"] = "lightgray"
-					document.getElementById("qrcode").innerHTML = ""
-					document.getElementById("qr-scan").style["display"] = "block"
-					new QRCode(document.getElementById("qrcode"), "http://10.202.96.236:5050/");
+	document.getElementById('white-gen').style["display"] = "none"
+	document.getElementById('loading-gen').style["display"] = "inline"
+
+	var val = document.getElementById('data').value;
+        $.ajax({
+            url: "/generate_file",
+            type: "POST",
+            dataType: "html",
+            data: {
+                val: val,
+                csrfmiddlewaretoken: "{{ csrf_token }}"
                 },
-                error : function(xhr,errmsg,err) {
-                    alert("Could not send URL to Django. Error: " + err);
-                }
-            });
+            success : function(json) {
+				document.getElementById('generate').style["background-color"] = "lightgray"
+				document.getElementById("qrcode").innerHTML = ""
+				document.getElementById("qr-scan").style["display"] = "block"
+				document.getElementById('loading-gen').style["display"] = "none"
+				document.getElementById('checky-gen').style["display"] = "inline"
+				new QRCode(document.getElementById("qrcode"), "http://10.202.96.236:5050/");
+            },
+            error : function(xhr,errmsg,err) {
+                alert("Could not send URL to Django. Error: " + err);
+            }
+        });
 }
 </script>
 <script>
