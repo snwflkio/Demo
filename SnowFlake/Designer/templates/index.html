@@ -79,12 +79,21 @@
 			    <div id="collapse-button" class="collapse" aria-labelledby="buttons" data-parent="#accordian-selection">
 			      <div class="card-body row">
 					  <div class="col-auto" style="margin-top: 5px">
-						<div id="button-primary" draggable="true" ondragstart="drag(event)">
-							<button class="btn btn-primary">Primary Button</button>
+						<div id="primary" draggable="true" ondragstart="drag(event)">
+							<button id="primary-content" class="btn btn-primary">Primary Button</button>
 						</div>
-						<div id="button-secondary" draggable="true" ondragstart="drag(event)">
-							<button class="btn btn-secondary">Secondary Button</button>
+						<div id="primary-setter" style="display: none">
+							<input type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
 						</div>
+
+						<div id="secondary" draggable="true" ondragstart="drag(event)">
+							<button id="secondary-content" class="btn btn-secondary">Secondary Button</button>
+						</div>
+						<div id="secondary-setter" style="display: none">
+							<input type="text" value="Primary Button" onkeyup="setValue('secondary', this.value)"/>
+						</div>
+
+
 						<div id="button-warning" draggable="true" ondragstart="drag(event)">
 							<button class="btn btn-warning">Warning Button</button>
 						</div>
