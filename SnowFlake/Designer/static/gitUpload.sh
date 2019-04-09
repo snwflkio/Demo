@@ -1,8 +1,7 @@
 #!/bin/bash
 
-mkdir -p ../../../../snwflkio.github.io/Creations/$1;
-cd ../../../../snwflkio.github./Creations/$1;
-echo "poop" >> ho.txt
+#mkdir -p cd ~/Dropbox/Snowflake/snwflkio.github.io/Creations/$1;
+cd ~/Dropbox/Snowflake/snwflkio.github.io/;
 
 git add .;
 git commit -m "$2";

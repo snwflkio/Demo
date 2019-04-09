@@ -12,7 +12,7 @@ from shutil import copyfile
 #####################################################################
 def parseHTML(inp):
     name = 'TODO'
-    directory = '../Creations/'
+    directory = '../../snwflkio.github.io/Creations/'
     cd = os.path.dirname(os.path.abspath(__file__))
     time = str(datetime.date.today())
     directory += time 
@@ -45,6 +45,8 @@ def parseHTML(inp):
 
     # Update content in HTML
     updateFile(directory + "/index.html", '%CONTENT%', cleanHTML(inp))
+
+    return time
     
 def cleanHTML(html):
     html = html.replace(' ondrop="drop(event)" ', "")
