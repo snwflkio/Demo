@@ -12,6 +12,6 @@ class CreateView(TemplateView):
 # This is defined in urls.py 
 def generate(request):
     if request.is_ajax():
-        name = parseHTML(request.POST['val'])
+        name = parseHTML(request.POST['val'], request.POST['name'])
         uploadApp(name)
     return HttpResponseRedirect('/')

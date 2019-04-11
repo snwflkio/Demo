@@ -25,6 +25,24 @@
 	<div class="main">
 		<div class="section-column">
 			<div class="accordion" id="accordian-selection">
+
+				<div class="card">
+			    <div class="card-header" id="navs">
+			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-navs" aria-expanded="false" aria-controls="collapse-navs">
+			        <button class="btn btn-link col-md-11" type="button">
+			          Application Settings
+			        </button>
+			      </h2>
+			    </div>
+			    <div id="collapse-navs" class="collapse" aria-labelledby="navs" data-parent="#accordian-selection">
+			      <div class="card-body">
+					<div id="app-name-setter">
+						<input type="text" id="app-name" placeholder="App Name" onkeydown="pres()" />
+					</div>
+				  </div>
+			    </div>
+			  </div>
+
 			  <div class="card">
 			    <div class="card-header" id="headers">
 			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-headings" aria-expanded="false" aria-controls="collapse-headings">
@@ -217,10 +235,18 @@
 <script>
 
 function test() {
+	if (!document.getElementById('app-name').value) {
+		console.log("ERROR NEED AN APP NAME")
+		alert("Please Input App Name")
+		throw "Need App Name";
+		return
+	}
+
 	document.getElementById('white-gen').style["display"] = "none"
 	document.getElementById('loading-gen').style["display"] = "inline"
 	var today = new Date();
 
+	var name = document.getElementById('app-name').value;
 	var val = document.getElementById('data').value;
         $.ajax({
             url: "/generate_file",
@@ -228,6 +254,7 @@ function test() {
             dataType: "html",
             data: {
                 val: val,
+                name: name,
                 csrfmiddlewaretoken: "{{ csrf_token }}"
                 },
             success : function(json) {
@@ -236,13 +263,24 @@ function test() {
 				document.getElementById("qr-scan").style["display"] = "block"
 				document.getElementById('loading-gen').style["display"] = "none"
 				document.getElementById('checky-gen').style["display"] = "inline"
-				new QRCode(document.getElementById("qrcode"), "https://snwflk.io/Creations/" + dateFormat());
+				var url = "https://snwflk.io/Creations/" + dateFormat() + document.getElementById('app-name').value + "/index.html";
+				new QRCode(document.getElementById("qrcode"), url);
             },
             error : function(xhr,errmsg,err) {
                 alert("Could not send URL to Django. Error: " + err);
             }
         });
 }
+</script>
+<script >
+	function pres() {
+		if (!document.getElementById('app-name').value) {
+			console.log("no");
+		}
+		else {
+			console.log("som");
+		}
+	}
 </script>
 <script>
 	function dateFormat(date) {

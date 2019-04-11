@@ -10,12 +10,12 @@ from shutil import copyfile
 #
 # Takes input as parameter (HTML to parse)
 #####################################################################
-def parseHTML(inp):
-    name = 'TODO'
+def parseHTML(inp, name):
+
     directory = '../../snwflkio.github.io/Creations/'
     cd = os.path.dirname(os.path.abspath(__file__))
-    time = str(datetime.date.today())
-    directory += time 
+    filename = str(datetime.date.today()) + name
+    directory += filename 
    
     # Create all the directories we need (This is in the directory above the project)
     if not os.path.exists(directory):
@@ -46,7 +46,7 @@ def parseHTML(inp):
     # Update content in HTML
     updateFile(directory + "/index.html", '%CONTENT%', cleanHTML(inp))
 
-    return time
+    return filename
     
 def cleanHTML(html):
     html = html.replace(' ondrop="drop(event)" ', "")
