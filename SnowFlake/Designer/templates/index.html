@@ -219,6 +219,7 @@
 function test() {
 	document.getElementById('white-gen').style["display"] = "none"
 	document.getElementById('loading-gen').style["display"] = "inline"
+	var today = new Date();
 
 	var val = document.getElementById('data').value;
         $.ajax({
@@ -235,13 +236,27 @@ function test() {
 				document.getElementById("qr-scan").style["display"] = "block"
 				document.getElementById('loading-gen').style["display"] = "none"
 				document.getElementById('checky-gen').style["display"] = "inline"
-				new QRCode(document.getElementById("qrcode"), "http://10.202.96.236:5050/");
+				new QRCode(document.getElementById("qrcode"), "https://snwflk.io/Creations/" + dateFormat());
             },
             error : function(xhr,errmsg,err) {
                 alert("Could not send URL to Django. Error: " + err);
             }
         });
 }
+</script>
+<script>
+	function dateFormat(date) {
+		pad = function (val, len) {
+            val = String(val);
+            len = len || 2;
+            while (val.length < len) val = "0" + val;
+            return val;
+        };
+        var d = new Date();
+        console.log(String(d.getFullYear()) +"-"+ pad(d.getMonth()+1) +"-"+ pad(d.getUTCDate()));
+        return String(d.getFullYear()) +"-"+ pad(d.getMonth()+1) +"-"+ pad(d.getUTCDate());
+        
+	}
 </script>
 <script>
 	function getData()
