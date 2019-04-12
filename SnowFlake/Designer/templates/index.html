@@ -111,6 +111,27 @@
 
 				</div>
 			</div>
+
+
+			  <div class="card">
+			    <div class="card-header" id="textblocks">
+			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-textblock" aria-expanded="false" aria-controls="collapse-textblock">
+			        <textblock class="btn btn-link col-md-11" type="textblock">
+			          Textblocks
+			        </textblock>
+			      </h2>
+			    </div>
+			    <div id="collapse-textblock" class="collapse" aria-labelledby="textblocks" data-parent="#accordian-selection">
+			      <div class="card-body row">
+					  <div class="col-auto" style="margin-top: 5px">
+					  	<div id="text" draggable="true" ondragstart="drag(event)">
+							<p id="text-content" draggable="true" ongradstart="drag(event)">Lorem Ipsum Dolor Sit Amet</p>
+						</div>
+						<textarea id="text-setter" style="display: none; width: 600px;" type="text" value="Lorem Ipsum Dolor Sit Amet" onkeyup="setValue('text', this.value)"></textarea>
+					</div>
+				</div>
+			</div>
+
 			<div class="card">
 			    <div class="card-header" id="navs">
 			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-navs" aria-expanded="false" aria-controls="collapse-navs">
