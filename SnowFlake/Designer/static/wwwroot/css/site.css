@@ -12,7 +12,7 @@
 
 .section-column {
 	display: flex;
-	width: 50%;
+	width: 80%;
 	flex-direction: column;
 	horizontal-align: center;
 }
@@ -39,6 +39,21 @@ div.block + div.block {
 		min-width: 2.5vw;
 		max-width: 2.5vw;
 }
+
+.component {
+	position: inherit;
+}
+
+.design-container {
+	position: absolute;
+	top: 0%;
+	left: 80%;
+	width: 20%;
+	height: 100%;
+	border: 2px solid slategray;
+	overflow: hidden;
+}
+
 
 .location {
 	align-content: center;

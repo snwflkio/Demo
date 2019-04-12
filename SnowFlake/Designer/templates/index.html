@@ -23,9 +23,8 @@
 
 <body>
 	<div class="main">
-		<div class="section-column">
-			<div class="accordion" id="accordian-selection">
-			  <div class="card">
+		<div class="section-column" id="section-column">
+			<div class="accordion" id="accordian-selection"> <div class="card">
 			    <div class="card-header" id="headers">
 			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-headings" aria-expanded="false" aria-controls="collapse-headings">
 			        <button class="btn btn-link col-md-11" type="button">
@@ -35,15 +34,12 @@
 			    </div>
 			    <div id="collapse-headings" class="collapse" aria-labelledby="headers" data-parent="#accordian-selection">
 			      <div class="card-body">
-					<div id="title" draggable="true" ondragstart="drag(event)">
-						<h1 id="title-content" class="editable">Title</h1>
-					</div>
-					<div id="title-setter" style="display: none">
-						<input type="text" value="Title" onkeyup="setValue('title', this.value)"/>
-					</div>
 
-					<div id="subtitle" draggable="true" ondragstart="drag(event)">
-						<h2 id="subtitle-content" class="editable">Subtitle</h2>
+					<h1 draggable="true" ondragstart="drag(event)" id="title-content" class="editable component">Title</h1>
+					<h2 id="subtitle-content" draggable="true" ondragstart="drag(event)" class="editable component">Subtitle</h2>
+
+					<div class="input" id="title-setter" style="display: none">
+						<input type="text" value="Title" onkeyup="setValue('title', this.value)"/>
 					</div>
 					<div id="subtitle-setter" style="display: none">
 						<input type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
@@ -163,7 +159,7 @@
 			</div>
 
 		<div class="line"></div>
-		<div id="PLACEHOLDER" style="width: 50%; height: 100%"></div>
+		<div id="PLACEHOLDER" class="design-container"></div>
 	<div id="qr-scan" class="overlay" style="display: none; padding-top: 5vh;">
 	<center>
 		<div id="qrcode"></div> <br/>
@@ -196,22 +192,25 @@
 </script>
 <script>
 	var section = document.getElementById("PLACEHOLDER")
-	for(var i = 0; i < 20; i++) {
-		var subsection = document.createElement("DIV")
-		subsection.setAttribute("id", i)
-		subsection.setAttribute("class", "section")
-		for(var j = 0; j < 20; j++) {
-			var subsubsection = document.createElement("DIV")
-			subsubsection.setAttribute("id", i + "" + j)
-			subsubsection.setAttribute("ondrop", "drop(event)")
-			subsubsection.setAttribute("draggable", "true")
-			subsubsection.setAttribute("ondragover", "allowDrop(event)")
-			subsubsection.setAttribute("ondragstart", "drag(event)")
-			subsubsection.setAttribute("class", "draggable location")
-			subsection.appendChild(subsubsection)
-		}
-		section.append(subsection)
-	}
+	section.addEventListener('dragover', allowDrop, false);
+	section.addEventListener('drop', drop, false);
+	section.addEventListener('dragstart', drag, false);
+//	for(var i = 0; i < 20; i++) {
+//		var subsection = document.createElement("DIV")
+//		subsection.setAttribute("id", i)
+//		subsection.setAttribute("class", "section")
+//		for(var j = 0; j < 20; j++) {
+//			var subsubsection = document.createElement("DIV")
+//			subsubsection.setAttribute("id", i + "" + j)
+//			subsubsection.setAttribute("ondrop", "drop(event)")
+//			subsubsection.setAttribute("draggable", "true")
+//			subsubsection.setAttribute("ondragover", "allowDrop(event)")
+//			subsubsection.setAttribute("ondragstart", "drag(event)")
+//			subsubsection.setAttribute("class", "draggable location")
+//			subsection.appendChild(subsubsection)
+//		}
+//		section.append(subsection)
+//	}
 </script>
 
 <script>
