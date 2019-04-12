@@ -51,6 +51,8 @@ def parseHTML(inp, name):
 def cleanHTML(html):
     html = html.replace(' ondrop="drop(event)" ', "")
     html = html.replace('ondragover="allowDrop(event)" ', "")
+    html = html.replace('editable', "")
+    html = html.replace('component', "")
     return html
 
 def updateFile(fileName, tag, value):

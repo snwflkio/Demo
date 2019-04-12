@@ -23,7 +23,7 @@
 
 <body>
 	<div class="main">
-		<div class="section-column">
+		<div class="section-column" id="section-column">
 			<div class="accordion" id="accordian-selection">
 
 				<div class="card">
@@ -53,31 +53,16 @@
 			    </div>
 			    <div id="collapse-headings" class="collapse" aria-labelledby="headers" data-parent="#accordian-selection">
 			      <div class="card-body">
-
-					<h1 draggable="true" ondragstart="drag(event)" id="title-content" class="editable component">Title</h1>
-					<h2 id="subtitle-content" draggable="true" ondragstart="drag(event)" class="editable component">Subtitle</h2>
-
-					<div class="input" id="title-setter" style="display: none">
-						<input type="text" value="Title" onkeyup="setValue('title', this.value)"/>
-					</div>
-					<div id="subtitle-setter" style="display: none">
-						<input type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
-					</div>
-
-
-					<div id="subsubtitle" draggable="true" ondragstart="drag(event)">
-						<h3 id="subsubtitle-content" class="editable">Subsubtitle</h3>
-					</div>
-					<div id="subsubtitle-setter" style="display: none">
-						<input type="text" value="Subsubtitle" onkeyup="setValue('subsubtitle', this.value)"/>
-					</div>
-
-					<div id="subsubsubtitle" draggable="true" ondragstart="drag(event)">
-						<h4 id="subsubsubtitle-content" class="editable">SubSubSubtitle</h4>
-					</div>
-					<div id="subsubsubtitle-setter" style="display: none">
-						<input type="text" value="Subsubsubtitle" onkeyup="setValue('subsubsubtitle', this.value)"/>
-					</div>
+					<h2 draggable="true" ondragstart="drag(event)" id="title-content" class="editable component">Title</h2>
+					<input class="input" id="title-setter" style="display: none" type="text" value="Title" onkeyup="setValue('title', this.value)"/>
+					<h3 draggable="true" ondragstart="drag(event)" id="subtitle-content "class="editable component">Subtitle</h3>
+					<input class="input" id="subtitle-setter" style="display: none" type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
+					<h4 draggable="true" ondragstart="drag(event)" id="subsubtitle-content" class="editable component">Subsubtitle</h4>
+					<input class="input" id="subsubtitle-setter" style="display: none" type="text" value="Subsubtitle" onkeyup="setValue('subsubtitle', this.value)"/>
+					<h5 draggable="true" ondragstart="drag(event)" id="subsubsubtitle-content" class="editable component">Subsubsubtitle</h5>
+					<input class="input" id="subsubsubtitle-setter" style="display: none" type="text" value="Subsubsubtitle" onkeyup="setValue('subsubsubtitle', this.value)"/>
+					<h6 draggable="true" ondragstart="drag(event)" id="subsubsubsubtitle-content" class="editable component">Subsubsubsubtitle</h6>
+					<input class="input" id="subsubsubsubtitle-setter" style="display: none" type="text" value="Subsubsubsubtitle" onkeyup="setValue('subsubsubsubtitle', this.value)"/>
 			      </div>
 			    </div>
 			  </div>

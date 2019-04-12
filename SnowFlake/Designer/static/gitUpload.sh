@@ -4,5 +4,8 @@
 cd ../../snwflkio.github.io/;
 
 git add .;
-git commit -m "$2";
+
+echo "\"${@:2}\"";
+args=${@:2}
+git commit -m "'$args'";
 git push -u origin master;
