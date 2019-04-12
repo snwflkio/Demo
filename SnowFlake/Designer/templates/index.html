@@ -1,9 +1,9 @@
 {% load static %}
 <html>
 <head>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="{% static "wwwroot/css/site.css" %}">
-
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" 
 		integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
 
@@ -22,10 +22,15 @@
 </head>
 
 <body>
+	<div class="header" id="header">
+		<center>
+			<img src="{% static "media/logo.png"  %}" style="padding-bottom: 20px;"/>
+		</center>
+	</div>
+
 	<div class="main">
 		<div class="section-column" id="section-column">
 			<div class="accordion" id="accordian-selection">
-
 				<div class="card">
 			    <div class="card-header" id="navs">
 			      <h2 class="mb-0" data-toggle="collapse" data-target="#collapse-settings" aria-expanded="false" aria-controls="collapse-settings">
@@ -75,32 +80,26 @@
 			        </button>
 			      </h2>
 			    </div>
-			
 			    <div id="collapse-button" class="collapse" aria-labelledby="buttons" data-parent="#accordian-selection">
 			      <div class="card-body row">
 					  <div class="col-auto" style="margin-top: 5px">
-						<div id="primary" draggable="true" ondragstart="drag(event)">
-							<button id="primary-content" class="btn btn-primary">Primary Button</button>
-						</div>
-						<div id="primary-setter" style="display: none">
-							<input type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
-						</div>
 
-						<div id="secondary" draggable="true" ondragstart="drag(event)">
-							<button id="secondary-content" class="btn btn-secondary">Secondary Button</button>
-						</div>
-						<div id="secondary-setter" style="display: none">
-							<input type="text" value="Primary Button" onkeyup="setValue('secondary', this.value)"/>
-						</div>
+						<button id="primary-content" draggable="true" ondragstart="drag(event)" class="btn btn-primary">Primary Button</button>
+						<input id="primary-setter" style="display: none" type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
+
+						<button id="secondary-content" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">Secondary Button</button>
+						<input id="secondary-setter" style="display: none" type="text" value="Secondary Button" onkeyup="setValue('secondary', this.value)"/>
+
+						<button id="success-content" draggable="true" ondragstart="drag(event)" class="btn btn-success">Success Button</button>
+						<input id="success-setter" style="display: none" type="text" value="Success Button" onkeyup="setValue('success', this.value)"/>
+
+						<button id="warning-content" draggable="true" ondragstart="drag(event)" class="btn btn-warning">Warning Button</button>
+						<input id="warning-setter" style="display: none" type="text" value="Warning Button" onkeyup="setValue('warning', this.value)"/>
+
+						<button id="danger-content" draggable="true" ondragstart="drag(event)" class="btn btn-danger">Danger Button</button>
+						<input id="danger-setter" style="display: none" type="text" value="Danger Button" onkeyup="setValue('danger', this.value)"/>
 
 
-						<div id="button-warning" draggable="true" ondragstart="drag(event)">
-							<button class="btn btn-warning">Warning Button</button>
-						</div>
-
-						<div id="button-danger" draggable="true" ondragstart="drag(event)">
-							<button class="btn btn-danger">Danger Button</button>
-						</div>
 					</div>
 					<div class="col-auto">
 						<div id="input" draggable="true" ondragstart="drag(event)">
@@ -132,10 +131,6 @@
 								</nav>
 							</div>
 						</div>
-
-						<div class="col">
-
-						</div>
 					</div>
 				  </div>
 			    </div>
@@ -164,14 +159,14 @@
 
 		<div class="line"></div>
 		<div id="PLACEHOLDER" class="design-container"></div>
-	<div id="qr-scan" class="overlay" style="display: none; padding-top: 5vh;">
-	<center>
-		<div id="qrcode"></div> <br/>
-		<button id="close" class="btn btn-large" onclick="closePopup()">Close</button>
-	</center>
-	</div>
+		</div>
 
-	</div>
+		<div id="qr-scan" class="overlay" style="display: none; padding-top: 5vh;">
+			<center>
+				<div id="qrcode"></div> <br/>
+				<button id="close" class="btn btn-large" onclick="closePopup()">Close</button>
+			</center>
+		</div>
 	</body>
 </html>
 
