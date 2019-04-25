@@ -74,9 +74,14 @@ div > input {
 }
 
 input {
-	width: 18vw;
+	width: 18vw !important;
 	min-width: 18vw;
 }
+
+.form-control {
+	width: 10vw !important;
+}
+
 
 .btn {
 	width: 15vw;

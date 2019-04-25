@@ -42,7 +42,7 @@
 			    <div id="collapse-settings" class="collapse" aria-labelledby="navs" data-parent="#accordian-selection">
 			      <div class="card-body">
 					<div id="app-name-setter">
-						<input type="text" id="app-name" placeholder="App Name" onkeydown="pres()" />
+					<span class="badge badge-secondary">App Name</span>	<input class="input form-control" type="text" id="app-name" placeholder="App Name" onkeydown="pres()" />
 					</div>
 				  </div>
 			    </div>
@@ -58,16 +58,25 @@
 			    </div>
 			    <div id="collapse-headings" class="collapse" aria-labelledby="headers" data-parent="#accordian-selection">
 			      <div class="card-body">
+				  	<span class="badge badge-secondary">Title Content</span>
 					<h2 draggable="true" ondragstart="drag(event)" id="title-content" class="editable component">Title</h2>
-					<input class="input" id="title-setter" style="display: none" type="text" value="Title" onkeyup="setValue('title', this.value)"/>
-					<h3 draggable="true" ondragstart="drag(event)" id="subtitle-content "class="editable component">Subtitle</h3>
-					<input class="input" id="subtitle-setter" style="display: none" type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
+					<input class="input form-control" id="title-setter" style="display: none" type="text" value="Title" onkeyup="setValue('title', this.value)"/>
+
+				  	<span class="badge badge-secondary">Subtitle Content</span>
+					<h3 draggable="true" ondragstart="drag(event)" id="subtitle-content"class="editable component">Subtitle</h3>
+					<input class="input form-control" id="subtitle-setter" style="display: none" type="text" value="Subtitle" onkeyup="setValue('subtitle', this.value)"/>
+					
+				  	<span class="badge badge-secondary">Subsubtitle Content</span>
 					<h4 draggable="true" ondragstart="drag(event)" id="subsubtitle-content" class="editable component">Subsubtitle</h4>
-					<input class="input" id="subsubtitle-setter" style="display: none" type="text" value="Subsubtitle" onkeyup="setValue('subsubtitle', this.value)"/>
+					<input class="input form-control" id="subsubtitle-setter" style="display: none" type="text" value="Subsubtitle" onkeyup="setValue('subsubtitle', this.value)"/>
+					
+				  	<span class="badge badge-secondary">Subsubsubtitle Content</span>
 					<h5 draggable="true" ondragstart="drag(event)" id="subsubsubtitle-content" class="editable component">Subsubsubtitle</h5>
-					<input class="input" id="subsubsubtitle-setter" style="display: none" type="text" value="Subsubsubtitle" onkeyup="setValue('subsubsubtitle', this.value)"/>
+					<input class="input form-control" id="subsubsubtitle-setter" style="display: none" type="text" value="Subsubsubtitle" onkeyup="setValue('subsubsubtitle', this.value)"/>
+
+				  	<span class="badge badge-secondary">Subsubsubsubtitle Content</span>
 					<h6 draggable="true" ondragstart="drag(event)" id="subsubsubsubtitle-content" class="editable component">Subsubsubsubtitle</h6>
-					<input class="input" id="subsubsubsubtitle-setter" style="display: none" type="text" value="Subsubsubsubtitle" onkeyup="setValue('subsubsubsubtitle', this.value)"/>
+					<input class="input form-control" id="subsubsubsubtitle-setter" style="display: none" type="text" value="Subsubsubsubtitle" onkeyup="setValue('subsubsubsubtitle', this.value)"/>
 			      </div>
 			    </div>
 			  </div>
@@ -83,28 +92,35 @@
 			    <div id="collapse-button" class="collapse" aria-labelledby="buttons" data-parent="#accordian-selection">
 			      <div class="card-body row">
 					  <div class="col-auto" style="margin-top: 5px">
-						<div>
+				  		<span class="badge badge-secondary">Primary Button Content &amp; Setter</span>
+						<div style="margin-top: 5px;">
 							<button id="primary-content" draggable="true" ondragstart="drag(event)" class="btn btn-primary">Primary Button</button>
-							<input id="primary-setter" style="display: none" type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
-							<input id="primary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('primary', this.value)"/>
+							<input class="input form-control" id="primary-setter" style="display: none" type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
+							<input class="input form-control" id="primary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('primary', this.value)"/>
 						</div>
-						<div>
+				  		<span class="badge badge-secondary">Secondary Button Content &amp; Setter</span>
+						<div style="margin-top: 5px;">
 							<button id="secondary-content" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">Secondary Button</button>
-							<input id="secondary-setter" style="display: none" type="text" value="Secondary Button" onkeyup="setValue('secondary', this.value)"/>
-							<input id="secondary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('secondary', this.value)"/>
+							<input class="input form-control"id="secondary-setter" style="display: none" type="text" value="Secondary Button" onkeyup="setValue('secondary', this.value)"/>
+							<input class="input form-control"id="secondary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('secondary', this.value)"/>
 						</div>
-						<div>
+				  		<span class="badge badge-secondary">Success Button Content &amp; Setter</span>
+						<div style="margin-top: 5px;">
 							<button id="success-content" draggable="true" ondragstart="drag(event)" class="btn btn-success">Success Button</button>
-							<input id="success-setter" style="display: none" type="text" value="Success Button" onkeyup="setValue('success', this.value)"/>
-							<input id="success-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('success', this.value)"/>
+							<input class="input form-control"id="success-setter" style="display: none" type="text" value="Success Button" onkeyup="setValue('success', this.value)"/>
+							<input class="input form-control"id="success-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('success', this.value)"/>
 						</div>
+				  		<span class="badge badge-secondary">Warning Button Content &amp; Setter</span>
+						<div style="margin-top: 5px;">
 							<button id="warning-content" draggable="true" ondragstart="drag(event)" class="btn btn-warning">Warning Button</button>
-							<input id="warning-setter" style="display: none" type="text" value="Warning Button" onkeyup="setValue('warning', this.value)"/>
-							<input id="warning-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('warning', this.value)"/>
-						<div>
+							<input class="input form-control"id="warning-setter" style="display: none" type="text" value="Warning Button" onkeyup="setValue('warning', this.value)"/>
+							<input class="input form-control"id="warning-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('warning', this.value)"/>
+						</div>
+				  		<span class="badge badge-secondary">Danger Button Content &amp; Setter</span>
+						<div style="margin-top: 5px;">
 							<button id="danger-content" draggable="true" ondragstart="drag(event)" class="btn btn-danger">Danger Button</button>
-							<input id="danger-setter" style="display: none" type="text" value="Danger Button" onkeyup="setValue('danger', this.value)"/>
-							<input id="danger-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('danger', this.value)"/>
+							<input class="input form-control"id="danger-setter" style="display: none" type="text" value="Danger Button" onkeyup="setValue('danger', this.value)"/>
+							<input class="input form-control"id="danger-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('danger', this.value)"/>
 						</div>
 
 					</div>
@@ -132,7 +148,7 @@
 			      <div class="card-body row">
 					  <div class="col-auto" style="margin-top: 5px">
 					  	<div id="text" draggable="true" ondragstart="drag(event)">
-							<p id="text-content" draggable="true" ongradstart="drag(event)">Lorem Ipsum Dolor Sit Amet</p>
+							<p id="text-content" draggable="true" ongradstart="drag(event)">Lorem ipsum dolor sit amet, consectetur.</p>
 						</div>
 						<textarea id="text-setter" style="display: none; width: 600px;" type="text" value="Lorem Ipsum Dolor Sit Amet" onkeyup="setValue('text', this.value)"></textarea>
 					</div>
