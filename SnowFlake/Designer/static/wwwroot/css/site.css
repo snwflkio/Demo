@@ -117,6 +117,6 @@ nav {
 /* Media CSS */
 @media screen and (max-width: 600px) {
 	.btn {
-		width: 50vw;
+		width: 75vw;
 	}
 }

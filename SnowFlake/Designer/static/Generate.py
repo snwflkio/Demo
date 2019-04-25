@@ -2,6 +2,7 @@ import re
 import os
 import datetime
 from shutil import copyfile
+from distutils.dir_util import copy_tree
 
 #####################################################################
 # Function to parse input HTML and remove "section" div class to
@@ -36,13 +37,14 @@ def parseHTML(inp, name):
     # Copy the assets           : /wwwroot/css/site.css, /wwwroot/js/site.js
     copyfile(cd + '/wwwroot/css/site.css', directory + '/wwwroot/css/site.css')
     copyfile(cd + '/wwwroot/scripts/site.js', directory + '/wwwroot/scripts/site.js')
+    copy_tree(cd + '/wwwroot/icons/', directory + '/wwwroot/icons/')
 
     # Replace all tags in the files
     updateFile(directory + "/wwwroot/manifest.json", '%NAME%', name)
     updateFile(directory + "/wwwroot/manifest.json", '%SHORT_NAME%', name)
     updateFile(directory + "/wwwroot/manifest.json", '%DESCRIPTION%', "Some random words here")
     updateFile(directory + "/ServiceWorker.js", '%NAME%', name)
-
+    
     # Update content in HTML
     updateFile(directory + "/index.html", '%CONTENT%', cleanHTML(inp))
 
