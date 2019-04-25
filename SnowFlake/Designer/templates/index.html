@@ -83,22 +83,29 @@
 			    <div id="collapse-button" class="collapse" aria-labelledby="buttons" data-parent="#accordian-selection">
 			      <div class="card-body row">
 					  <div class="col-auto" style="margin-top: 5px">
-
-						<button id="primary-content" draggable="true" ondragstart="drag(event)" class="btn btn-primary">Primary Button</button>
-						<input id="primary-setter" style="display: none" type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
-
-						<button id="secondary-content" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">Secondary Button</button>
-						<input id="secondary-setter" style="display: none" type="text" value="Secondary Button" onkeyup="setValue('secondary', this.value)"/>
-
-						<button id="success-content" draggable="true" ondragstart="drag(event)" class="btn btn-success">Success Button</button>
-						<input id="success-setter" style="display: none" type="text" value="Success Button" onkeyup="setValue('success', this.value)"/>
-
-						<button id="warning-content" draggable="true" ondragstart="drag(event)" class="btn btn-warning">Warning Button</button>
-						<input id="warning-setter" style="display: none" type="text" value="Warning Button" onkeyup="setValue('warning', this.value)"/>
-
-						<button id="danger-content" draggable="true" ondragstart="drag(event)" class="btn btn-danger">Danger Button</button>
-						<input id="danger-setter" style="display: none" type="text" value="Danger Button" onkeyup="setValue('danger', this.value)"/>
-
+						<div>
+							<button id="primary-content" draggable="true" ondragstart="drag(event)" class="btn btn-primary">Primary Button</button>
+							<input id="primary-setter" style="display: none" type="text" value="Primary Button" onkeyup="setValue('primary', this.value)"/>
+							<input id="primary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('primary', this.value)"/>
+						</div>
+						<div>
+							<button id="secondary-content" draggable="true" ondragstart="drag(event)" class="btn btn-secondary">Secondary Button</button>
+							<input id="secondary-setter" style="display: none" type="text" value="Secondary Button" onkeyup="setValue('secondary', this.value)"/>
+							<input id="secondary-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('secondary', this.value)"/>
+						</div>
+						<div>
+							<button id="success-content" draggable="true" ondragstart="drag(event)" class="btn btn-success">Success Button</button>
+							<input id="success-setter" style="display: none" type="text" value="Success Button" onkeyup="setValue('success', this.value)"/>
+							<input id="success-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('success', this.value)"/>
+						</div>
+							<button id="warning-content" draggable="true" ondragstart="drag(event)" class="btn btn-warning">Warning Button</button>
+							<input id="warning-setter" style="display: none" type="text" value="Warning Button" onkeyup="setValue('warning', this.value)"/>
+							<input id="warning-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('warning', this.value)"/>
+						<div>
+							<button id="danger-content" draggable="true" ondragstart="drag(event)" class="btn btn-danger">Danger Button</button>
+							<input id="danger-setter" style="display: none" type="text" value="Danger Button" onkeyup="setValue('danger', this.value)"/>
+							<input id="danger-link-setter" style="display: none" type="text" value="https://snwflk.io" onkeyup="setHref('danger', this.value)"/>
+						</div>
 
 					</div>
 					<div class="col-auto">
@@ -208,6 +215,11 @@
 
 	function setValue(elemId, val) {
 		var element = document.getElementById(elemId + '-content').innerHTML = val;
+	}
+	
+	function setHref(elemId, hrefVal) {
+		var totalHref = "window.open('"+hrefVal+"','_blank')"
+		var element = document.getElementById(elemId + '-content').setAttribute('onclick', totalHref);
 	}
 </script>
 <script>

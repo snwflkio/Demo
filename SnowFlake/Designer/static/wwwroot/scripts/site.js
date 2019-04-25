@@ -34,6 +34,11 @@ function drop(ev) {
   item.style.top = ((ev.clientY - height.replace("px","")) + 'px');
 
   document.getElementById(data[0].split('-')[0] + '-setter').style["display"] = "block";
+  var linkSetter = document.getElementById(data[0].split('-')[0] + '-link-setter');
+  if(linkSetter != null)
+  {
+	linkSetter.style["display"] = "block";
+  }
   return false;
 }
 
